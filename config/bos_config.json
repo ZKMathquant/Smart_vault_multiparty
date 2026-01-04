@@ -1,0 +1,22 @@
+
+{
+  "grail_pro": {
+    "circuit_type": "utxo_vault",
+    "proof_system": "grail_pro_v1",
+    "mock_mode": true
+  },
+  "zkbtc": {
+    "enabled": true,
+    "supported_chains": ["ethereum", "polygon", "arbitrum"],
+    "mock_mode": true
+  },
+  "charms": {
+    "token_standard": "charms_v1",
+    "governance_enabled": true,
+    "mock_mode": true
+  },
+  "bitcoin": {
+    "network": "testnet",
+    "min_confirmations": 1
+  }
+}

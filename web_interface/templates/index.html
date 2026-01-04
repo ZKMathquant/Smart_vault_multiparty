@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Party Smart Vault</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏦 Multi-Party Smart Vault</h1>
+            <p>Bitcoin programmable custody using BitcoinOS Stack</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('create')">Create Vault</button>
+            <button class="tab-button" onclick="showTab('manage')">Manage Vault</button>
+            <button class="tab-button" onclick="showTab('governance')">Governance</button>
+        </div>
+
+        <!-- Create Vault Tab -->
+        <div id="create-tab" class="tab-content active">
+            <div class="card">
+                <h2>Create New Vault</h2>
+                
+                <div class="form-group">
+                    <label>Initial Balance (sats):</label>
+                    <input type="number" id="initial-balance" value="100000000" min="1000000">
+                </div>
+
+                <div class="form-group">
+                    <label>Vault Rules:</label>
+                    <select id="rules-type">
+                        <option value="conservative">Conservative (2-of-3, 10% penalty)</option>
+                        <option value="permissive">Permissive (1-of-3, 5% penalty)</option>
+                    </select>
+                </div>
+
+                <h3>Vault Members</h3>
+                <div id="members-container">
+                    <div class="member-input">
+                        <input type="text" placeholder="Member name" class="member-name" value="Alice">
+                        <input type="number" placeholder="Share %" class="member-share" value="40" min="1" max="100">
+                    </div>
+                    <div class="member-input">
+                        <input type="text" placeholder="Member name" class="member-name" value="Bob">
+                        <input type="number" placeholder="Share %" class="member-share" value="35" min="1" max="100">
+                    </div>
+                    <div class="member-input">
+                        <input type="text" placeholder="Member name" class="member-name" value="Carol">
+                        <input type="number" placeholder="Share %" class="member-share" value="25" min="1" max="100">
+                    </div>
+                </div>
+
+                <button onclick="addMember()">Add Member</button>
+                <button onclick="createVault()" class="primary">Create Vault</button>
+
+                <div id="create-result" class="result"></div>
+            </div>
+        </div>
+
+        <!-- Manage Vault Tab -->
+        <div id="manage-tab" class="tab-content">
+            <div class="card">
+                <h2>Manage Vault</h2>
+                
+                <div class="form-group">
+                    <label>Vault ID:</label>
+                    <input type="text" id="vault-id" placeholder="Enter vault ID">
+                    <button onclick="loadVault()">Load Vault</button>
+                </div>
+
+                <div id="vault-info" class="vault-info" style="display: none;">
+                    <h3>Vault Information</h3>
+                    <div id="vault-details"></div>
+
+                    <h3>Create Withdrawal</h3>
+                    <div class="form-group">
+                        <label>Amount (sats):</label>
+                        <input type="number" id="withdrawal-amount" min="1000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Signers (public keys, one per line):</label>
+                        <textarea id="withdrawal-signers" rows="3" placeholder="Enter public keys..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="is-emergency"> Emergency Withdrawal
+                        </label>
+                    </div>
+
+                    <button onclick="createWithdrawal()" class="primary">Create Withdrawal</button>
+                    
+                    <div id="withdrawal-result" class="result"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Governance Tab -->
+        <div id="governance-tab" class="tab-content">
+            <div class="card">
+                <h2>Governance</h2>
+                
+                <div class="form-group">
+                    <label>Vault ID:</label>
+                    <input type="text" id="gov-vault-id" placeholder="Enter vault ID">
+                    <button onclick="loadGovernance()">Load Governance</button>
+                </div>
+
+                <div id="governance-info" style="display: none;">
+                    <h3>Create Proposal</h3>
+                    <div class="form-group">
+                        <label>Proposer Public Key:</label>
+                        <input type="text" id="proposer-key" placeholder="Public key">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Proposal Type:</label>
+                        <select id="proposal-type">
+                            <option value="change_withdrawal_rules">Change Withdrawal Rules</option>
+                            <option value="add_member">Add Member</option>
+                            <option value="remove_member">Remove Member</option>
+                            <option value="emergency_exit">Emergency Exit</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Title:</label>
+                        <input type="text" id="proposal-title" placeholder="Proposal title">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description:</label>
+                        <textarea id="proposal-description" rows="3" placeholder="Proposal description"></textarea>
+                    </div>
+
+                    <button onclick="createProposal()" class="primary">Create Proposal</button>
+
+                    <h3>Active Proposals</h3>
+                    <div id="proposals-list"></div>
+                    
+                    <div id="governance-result" class="result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

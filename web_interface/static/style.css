@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    opacity: 0.9;
+    font-size: 1.1em;
+}
+
+.tabs {
+    display: flex;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+    background: #e9ecef;
+}
+
+.tab-button.active {
+    background: white;
+    border-bottom: 3px solid #007bff;
+    color: #007bff;
+}
+
+.tab-content {
+    display: none;
+    padding: 30px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e1e5e9;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+button.primary {
+    background: #007bff;
+    color: white;
+}
+
+button.primary:hover {
+    background: #0056b3;
+}
+
+button:not(.primary) {
+    background: #6c757d;
+    color: white;
+}
+
+button:not(.primary):hover {
+    background: #545b62;
+}
+
+.member-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.member-input input {
+    flex: 1;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 6px;
+    display: none;
+}
+
+.result.success {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.result.error {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.vault-info {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.proposal-item {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.proposal-item h4 {
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.proposal-item .status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status.active {
+    background: #28a745;
+    color: white;
+}
+
+.status.passed {
+    background: #007bff;
+    color: white;
+}
+
+.status.rejected {
+    background: #dc3545;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        border-radius: 8px;
+    }
+    
+    header {
+        padding: 20px;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+    
+    .tab-content {
+        padding: 20px;
+    }
+    
+    .member-input {
+        flex-direction: column;
+    }
+}
