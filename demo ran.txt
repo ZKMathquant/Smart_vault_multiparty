@@ -1,0 +1,174 @@
+ python3 -m venv venv
+smart_vaults_multiparty$ source venv/bin/activate
+(venv) smart_vaults_multiparty$ pip install -r requirements.txt
+Collecting flask==2.3.3 (from -r requirements.txt (line 1))
+  Using cached flask-2.3.3-py3-none-any.whl.metadata (3.6 kB)
+Collecting cryptography==41.0.7 (from -r requirements.txt (line 2))
+  Using cached cryptography-41.0.7-cp37-abi3-manylinux_2_28_x86_64.whl.metadata (5.2 kB)
+Collecting ecdsa==0.18.0 (from -r requirements.txt (line 3))
+  Using cached ecdsa-0.18.0-py2.py3-none-any.whl.metadata (29 kB)
+Collecting requests==2.31.0 (from -r requirements.txt (line 4))
+  Using cached requests-2.31.0-py3-none-any.whl.metadata (4.6 kB)
+Collecting Werkzeug>=2.3.7 (from flask==2.3.3->-r requirements.txt (line 1))
+  Using cached werkzeug-3.1.4-py3-none-any.whl.metadata (4.0 kB)
+Collecting Jinja2>=3.1.2 (from flask==2.3.3->-r requirements.txt (line 1))
+  Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting itsdangerous>=2.1.2 (from flask==2.3.3->-r requirements.txt (line 1))
+  Using cached itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting click>=8.1.3 (from flask==2.3.3->-r requirements.txt (line 1))
+  Using cached click-8.3.1-py3-none-any.whl.metadata (2.6 kB)
+Collecting blinker>=1.6.2 (from flask==2.3.3->-r requirements.txt (line 1))
+  Using cached blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting cffi>=1.12 (from cryptography==41.0.7->-r requirements.txt (line 2))
+  Using cached cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.6 kB)
+Collecting six>=1.9.0 (from ecdsa==0.18.0->-r requirements.txt (line 3))
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting charset-normalizer<4,>=2 (from requests==2.31.0->-r requirements.txt (line 4))
+  Using cached charset_normalizer-3.4.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (37 kB)
+Collecting idna<4,>=2.5 (from requests==2.31.0->-r requirements.txt (line 4))
+  Using cached idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+Collecting urllib3<3,>=1.21.1 (from requests==2.31.0->-r requirements.txt (line 4))
+  Using cached urllib3-2.6.2-py3-none-any.whl.metadata (6.6 kB)
+Collecting certifi>=2017.4.17 (from requests==2.31.0->-r requirements.txt (line 4))
+  Using cached certifi-2026.1.4-py3-none-any.whl.metadata (2.5 kB)
+Collecting pycparser (from cffi>=1.12->cryptography==41.0.7->-r requirements.txt (line 2))
+  Using cached pycparser-2.23-py3-none-any.whl.metadata (993 bytes)
+Collecting MarkupSafe>=2.0 (from Jinja2>=3.1.2->flask==2.3.3->-r requirements.txt (line 1))
+  Using cached markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Using cached flask-2.3.3-py3-none-any.whl (96 kB)
+Using cached cryptography-41.0.7-cp37-abi3-manylinux_2_28_x86_64.whl (4.4 MB)
+Using cached ecdsa-0.18.0-py2.py3-none-any.whl (142 kB)
+Using cached requests-2.31.0-py3-none-any.whl (62 kB)
+Using cached blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Using cached certifi-2026.1.4-py3-none-any.whl (152 kB)
+Using cached cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (219 kB)
+Using cached charset_normalizer-3.4.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (153 kB)
+Using cached click-8.3.1-py3-none-any.whl (108 kB)
+Using cached idna-3.11-py3-none-any.whl (71 kB)
+Using cached itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Using cached urllib3-2.6.2-py3-none-any.whl (131 kB)
+Using cached werkzeug-3.1.4-py3-none-any.whl (224 kB)
+Using cached markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Using cached pycparser-2.23-py3-none-any.whl (118 kB)
+Installing collected packages: urllib3, six, pycparser, MarkupSafe, itsdangerous, idna, click, charset-normalizer, certifi, blinker, Werkzeug, requests, Jinja2, ecdsa, cffi, flask, cryptography
+Successfully installed Jinja2-3.1.6 MarkupSafe-3.0.3 Werkzeug-3.1.4 blinker-1.9.0 certifi-2026.1.4 cffi-2.0.0 charset-normalizer-3.4.4 click-8.3.1 cryptography-41.0.7 ecdsa-0.18.0 flask-2.3.3 idna-3.11 itsdangerous-2.2.0 pycparser-2.23 requests-2.31.0 six-1.17.0 urllib3-2.6.2
+(venv) smart_vaults_multiparty$ python3 demo.py
+============================================================
+🏦 MULTI-PARTY SMART VAULT - COMPLETE DEMO
+============================================================
+
+🔧 STEP 1: Setting up vault participants
+----------------------------------------
+✅ Alice: 03265e076b147cd1... (40% share)
+✅ Bob: 030567bbd448fe20... (35% share)
+✅ Carol: 02a030b64e6d8b14... (25% share)
+
+🏗️  STEP 2: Creating multi-party vault
+----------------------------------------
+✅ Vault ID: a329750a0d5d731382baa7781aa8a70661ed8180bda016a346034e7f86080988
+✅ Balance: 100,000,000 sats (1.0 BTC)
+✅ Members: 3
+✅ Rules: 2-of-3 signatures required
+
+💰 STEP 3: Testing withdrawal scenarios
+----------------------------------------
+Test 1: Small withdrawal with 2-of-3 signatures
+   ✅ SUCCESS: Withdrew 5,000,000 sats
+   💰 Remaining balance: 95,000,000 sats
+
+Test 2: Large withdrawal with insufficient signers
+   ✅ EXPECTED FAILURE: Predicate verification failed: Large withdrawal requires all 3 signers, got 2
+
+🪙 STEP 4: Charms governance tokens
+----------------------------------------
+✅ Token created: VSTA329
+✅ Total supply: 100,000,000
+
+Token distribution:
+   Alice: 40,000,000 tokens (40.0% voting power)
+   Bob: 35,000,000 tokens (35.0% voting power)
+   Carol: 25,000,000 tokens (25.0% voting power)
+
+🗳️  STEP 5: Governance proposal and voting
+----------------------------------------
+✅ Proposal created: edf00ec7cbdcd594
+   Proposer: Alice
+   Type: Change withdrawal rules
+
+Voting phase:
+   Alice votes YES: ✅
+   Bob votes YES: ✅
+   Carol votes NO: ✅
+
+📊 Proposal results:
+   Votes FOR: 75.0%
+   Votes AGAINST: 25.0%
+   Required: 51.0%
+   Status: ✅ PASSED
+
+🌉 STEP 6: Cross-chain integration (zkBTC)
+----------------------------------------
+✅ Cross-chain proof verified: True
+✅ Collateral position created:
+   Position ID: 60e34c6200167b92
+   Collateral: 30,000,000 sats
+   Max borrow: 24,000,000 sats
+   Chain: ethereum
+
+📈 STEP 7: System summary
+----------------------------------------
+✅ Multi-party vault operational
+✅ zk-verified withdrawals working
+✅ Governance system active
+✅ Cross-chain integration ready
+✅ BOS stack fully integrated
+
+🎯 Demo completed successfully!
+   This demonstrates a complete Bitcoin smart contract system
+   using Charms, Grail Pro, and zkBTC interfaces.
+
+📊 Final Statistics:
+   Vault balance: 95,000,000 sats
+   Withdrawals executed: 1
+   Governance proposals: 1
+   Cross-chain positions: 1
+   Token transfers: 0
+(venv) smart_vaults_multiparty$ python3 -m unittest discover tests/ -v
+test_charms_integration (test_integration.TestBOSIntegration.test_charms_integration)
+Test Charms token and governance integration ... ok
+test_governance_system (test_integration.TestBOSIntegration.test_governance_system)
+Test governance proposal and voting ... ok
+test_grail_pro_integration (test_integration.TestBOSIntegration.test_grail_pro_integration)
+Test Grail Pro proof generation and verification ... ok
+test_zkbtc_integration (test_integration.TestBOSIntegration.test_zkbtc_integration)
+Test zkBTC cross-chain verification ... ok
+test_conservative_rules (test_rules.TestWithdrawalRules.test_conservative_rules)
+Test conservative rule parameters ... ok
+test_large_withdrawal_detection (test_rules.TestWithdrawalRules.test_large_withdrawal_detection)
+Test large withdrawal detection ... ok
+test_penalty_calculation (test_rules.TestWithdrawalRules.test_penalty_calculation)
+Test penalty calculation ... ok
+test_permissive_rules (test_rules.TestWithdrawalRules.test_permissive_rules)
+Test permissive rule parameters ... ok
+test_withdrawal_validation (test_rules.TestWithdrawalRules.test_withdrawal_validation)
+Test withdrawal validation logic ... ok
+test_member_validation (test_vault.TestVault.test_member_validation)
+Test member share validation ... ok
+test_multiparty_vault (test_vault.TestVault.test_multiparty_vault)
+Test MultiPartyVault functionality ... ok
+test_vault_creation (test_vault.TestVault.test_vault_creation)
+Test vault creation and validation ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.218s
+
+OK
+(venv)smart_vaults_multiparty$ python3 web_interface/app.py
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:10000
+ * Running on http://172.20.11.145:10000
